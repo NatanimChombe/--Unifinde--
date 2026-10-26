@@ -16,7 +16,7 @@
             <a href="<?php echo isset($is_page) ? '../index.php' : 'index.php'; ?>">Home</a>
             <a href="<?php echo isset($is_page) ? 'lost_item.php' : 'pages/lost_item.php'; ?>">Lost Items</a>
             <a href="<?php echo isset($is_page) ? 'found_item.php' : 'pages/found_item.php'; ?>">Found Items</a>
-            <a href="<?php echo isset($is_page) ? 'register_lost.php' : 'pages/register_lost.php'; ?>" class="btn-nav">Register Lost Item</a>
+            <a href="<?php echo isset($is_page) ? 'register_lost.php' : 'pages/register_lost.php'; ?>" class="btn-nav">Register Lost Items</a>
             <a href="<?php echo isset($is_page) ? 'register_found.php' : 'pages/register_found.php'; ?>" class="btn-nav">Register Found Items</a>
         </nav>
     </header>
