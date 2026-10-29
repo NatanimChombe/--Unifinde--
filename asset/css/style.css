@@ -45,3 +45,146 @@ input, textarea, select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+/* ==========================================
+   AUTHENTICATION FORMS (Login & Register)
+   ========================================== */
+.auth-container {
+    max-width: 450px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.auth-container h2 {
+    margin-top: 0;
+    color: #004080;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.btn-auth {
+    width: 100%;
+    background: #004080;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-auth:hover {
+    background: #002d59;
+}
+
+/* ==========================================
+   USER WELCOME BAR & ACTION BUTTONS
+   ========================================== */
+.user-welcome-bar {
+    background: #eef2f5;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.action-box {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-left: 4px solid #004080;
+    border-radius: 4px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-edit {
+    background: #f0ad4e;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background: #ec971f;
+}
+
+.btn-delete {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-delete:hover {
+    background: #c9302c;
+}
+
+.btn-found {
+    background: #5cb85c;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-found:hover {
+    background: #4cae4c;
+}
+
+.alert-error {
+    color: #d9534f;
+    background: #fdf7f7;
+    padding: 10px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background: #dff0d8;
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
