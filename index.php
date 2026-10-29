@@ -23,6 +23,7 @@ include 'includes/header.php';
         </div>
     <?php endif; ?>
 
+    <!-- Two Section Boxes -->
     <div class="flex-cards" style="display: flex; gap: 20px; margin-top: 30px; justify-content: center;">
         <div class="card" style="background: #eef2f5; padding: 25px; border-radius: 8px; flex: 1; max-width: 350px;">
             <h3>Lost Items</h3>
@@ -35,6 +36,13 @@ include 'includes/header.php';
             <p>Found a stray item? Register it here to help return it to its owner.</p>
             <a href="pages/found_item.php" class="btn" style="display:inline-block; margin-top:15px; background:#ff6600; color:#fff; padding:10px 15px; text-decoration:none; border-radius:4px;">View Found Registry</a>
         </div>
+    </div>
+
+    <!-- NEW: Button below the two cards for Accepted Items -->
+    <div style="margin-top: 30px;">
+        <a href="pages/accepted_items.php" class="btn" style="display: inline-block; background: #28a745; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px;">
+            📋 View Accepted / Recovered Items Registry
+        </a>
     </div>
 </div>
 

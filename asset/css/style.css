@@ -12,6 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
 }
 header nav a {
     color: white;
@@ -188,3 +189,15 @@ input, textarea, select {
     border-radius: 4px;
     margin-bottom: 15px;
 }
+footer { 
+            width: 100%;
+            background: #ffffff; /* Or match your preferred background color */
+            text-align: center; 
+            padding: 20px 0; 
+            color: #666; 
+            font-size: 13px; 
+            margin-top: 40px; 
+            border-top: 1px solid #ddd;
+            box-sizing: border-box;
+            height: 100px;
+        }
