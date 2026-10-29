@@ -1,17 +1,26 @@
 <?php
+session_start();
+
+// Check if user is logged in; if not, redirect to login page
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php?error=access_denied");
+    exit();
+}
+
 $is_page = true;
 include '../includes/header.php';
 ?>
 
 <h2>Register a Lost Item</h2>
 <form action="../actions/process_lost.php" method="POST" enctype="multipart/form-data" style="max-width: 600px;">
+    <!-- Your form fields remain here -->
     <div style="margin-bottom: 15px;">
         <label>Student Name:</label><br>
-        <input type="text" name="student_name" required style="width:100%; padding:8px;">
+        <input type="text" name="student_name" value="<?php echo htmlspecialchars($_SESSION['fullname'] ?? ''); ?>" required style="width:100%; padding:8px;">
     </div>
 
     <div style="margin-bottom: 15px;">
-        <label>Student ID:</label><br>
+        <label>Student ID / Username:</label><br>
         <input type="text" name="student_id" required style="width:100%; padding:8px;">
     </div>
 

@@ -1,9 +1,15 @@
 <?php
+session_start();
 require_once '../includes/db.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../pages/login.php?error=access_denied");
+    exit();
+}
+
 if (isset($_POST['submit_found'])) {
+    $user_id      = $_SESSION['user_id'];
     $finder_name  = $_POST['finder_name'];
-    $finder_id    = $_POST['finder_id'];
     $phone_number = $_POST['phone_number'];
     $item_name    = $_POST['item_name'];
     $description  = $_POST['description'];
@@ -27,13 +33,14 @@ if (isset($_POST['submit_found'])) {
     }
 
     try {
-        $sql = "INSERT INTO found_items (finder_name, finder_id, phone_number, item_name, description, item_photo, date_found, place_found) 
-                VALUES (:finder_name, :finder_id, :phone_number, :item_name, :description, :item_photo, :date_found, :place_found)";
+        // REMOVED finder_id from columns and values
+        $sql = "INSERT INTO found_items (user_id, finder_name, phone_number, item_name, description, item_photo, date_found, place_found) 
+                VALUES (:user_id, :finder_name, :phone_number, :item_name, :description, :item_photo, :date_found, :place_found)";
         
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
+            ':user_id'      => $user_id,
             ':finder_name'  => $finder_name,
-            ':finder_id'    => $finder_id,
             ':phone_number' => $phone_number,
             ':item_name'    => $item_name,
             ':description'  => $description,

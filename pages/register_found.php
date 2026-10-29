@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php?error=access_denied");
+    exit();
+}
+
 $is_page = true;
 include '../includes/header.php';
 ?>
@@ -7,13 +14,10 @@ include '../includes/header.php';
 <form action="../actions/process_found.php" method="POST" enctype="multipart/form-data" style="max-width: 600px;">
     <div style="margin-bottom: 15px;">
         <label>Finder Name:</label><br>
-        <input type="text" name="finder_name" required style="width:100%; padding:8px;">
+        <input type="text" name="finder_name" value="<?php echo htmlspecialchars($_SESSION['fullname'] ?? ''); ?>" required style="width:100%; padding:8px;">
     </div>
 
-    <div style="margin-bottom: 15px;">
-        <label>Finder ID:</label><br>
-        <input type="text" name="finder_id" required style="width:100%; padding:8px;">
-    </div>
+    <!-- REMOVED: Finder ID input field -->
 
     <div style="margin-bottom: 15px;">
         <label>Phone Number:</label><br>

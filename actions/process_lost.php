@@ -1,7 +1,15 @@
 <?php
+session_start(); // <--- CRITICAL: Must be at the very top
 require_once '../includes/db.php';
 
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../pages/login.php?error=access_denied");
+    exit();
+}
+
 if (isset($_POST['submit_lost'])) {
+    $user_id      = $_SESSION['user_id']; // <--- Captures the logged-in user's ID
     $student_name = $_POST['student_name'];
     $student_id   = $_POST['student_id'];
     $phone_number = $_POST['phone_number'];
@@ -27,11 +35,12 @@ if (isset($_POST['submit_lost'])) {
     }
 
     try {
-        $sql = "INSERT INTO lost_items (student_name, student_id, phone_number, item_name, special_sign, item_photo, date_lost, place_lost) 
-                VALUES (:student_name, :student_id, :phone_number, :item_name, :special_sign, :item_photo, :date_lost, :place_lost)";
+        $sql = "INSERT INTO lost_items (user_id, student_name, student_id, phone_number, item_name, special_sign, item_photo, date_lost, place_lost) 
+                VALUES (:user_id, :student_name, :student_id, :phone_number, :item_name, :special_sign, :item_photo, :date_lost, :place_lost)";
         
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
+            ':user_id'      => $user_id,
             ':student_name' => $student_name,
             ':student_id'   => $student_id,
             ':phone_number' => $phone_number,

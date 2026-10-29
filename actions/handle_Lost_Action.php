@@ -19,17 +19,24 @@ if ($id) {
 
     if ($item) {
         if ($action === 'delete') {
+            // Optional: Delete the image file from server to save storage space
+            if (!empty($item['item_photo']) && file_exists('../' . $item['item_photo'])) {
+                unlink('../' . $item['item_photo']);
+            }
+
+            // Delete from database
             $del = $pdo->prepare("DELETE FROM lost_items WHERE id = ?");
             $del->execute([$id]);
-        } elseif ($action === 'found') {
-            // 1. Migrate data to resolved_items table
+        } 
+        elseif ($action === 'found') {
+            // Migrate to resolved_items table
             $mig = $pdo->prepare("INSERT INTO resolved_items (original_lost_id, user_id, student_name, phone_number, item_name, special_sign, item_photo, date_lost, place_lost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $mig->execute([
                 $item['id'], $item['user_id'], $item['student_name'], $item['phone_number'], 
                 $item['item_name'], $item['special_sign'], $item['item_photo'], $item['date_lost'], $item['place_lost']
             ]);
 
-            // 2. Delete from active lost_items table
+            // Delete from active lost items
             $del = $pdo->prepare("DELETE FROM lost_items WHERE id = ?");
             $del->execute([$id]);
         }
