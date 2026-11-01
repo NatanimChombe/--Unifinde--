@@ -45,8 +45,9 @@ $current_user_id = $_SESSION['user_id'] ?? 0;
                 <p><strong>Place Lost:</strong> <?php echo htmlspecialchars($item['place_lost']); ?></p>
 
                 <?php if (!empty($item['item_photo'])): ?>
-                    <p><img src="../<?php echo htmlspecialchars($item['item_photo']); ?>" alt="Photo" width="150" style="border-radius:4px; border: 1px solid #ccc;"></p>
-                <?php endif; ?>
+    <!-- Increased width from 150 to 300 -->
+    <p><img src="../<?php echo htmlspecialchars($item['item_photo']); ?>" alt="Photo" width="300" style="border-radius:4px; border: 1px solid #ccc; max-width: 100%; height: auto;"></p>
+<?php endif; ?>
 
                 <!-- Show Action Buttons ONLY if the logged-in user is the owner -->
                 <?php if ($current_user_id == $item['user_id']): ?>
